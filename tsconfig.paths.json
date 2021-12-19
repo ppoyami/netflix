@@ -2,7 +2,6 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "@/*": ["./src/*"],
       "@app": ["./App.tsx"],
       "@pages/*": ["./pages/*"],
       "@components/*": ["./components/*"],

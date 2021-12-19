@@ -1,19 +1,13 @@
 {
-  "compilerOptions":{
-    "baseUrl":"./src",
-    "paths":{
-      "@app":[
-        "./App.tsx"
-      ],
-      "@pages/*":[
-        "./pages/*"
-      ],
-      "@components/*":[
-        "./components/*"
-      ],
-      "@styles/*":[
-        "./styles/*"
-      ]
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@app": ["./App.tsx"],
+      "@pages/*": ["./pages/*"],
+      "@components/*": ["./components/*"],
+      "@styles/*": ["./styles/*"],
+      "@assets/*": ["./assets/*"]
     }
   }
 }

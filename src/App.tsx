@@ -16,7 +16,7 @@ export default function App() {
         <Global styles={GlobalStyles(theme)} />
         <Header />
         <Switch>
-          <Route path="/" component={Home} />
+          <Route path={['/', '/movies/:movieId']} component={Home} />
           <Route exact path="/tv" component={Tv} />
           <Route exact path="/search" component={Search} />
         </Switch>

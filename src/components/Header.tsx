@@ -1,7 +1,12 @@
 import styled from '@emotion/styled';
-import { Link, useRouteMatch } from 'react-router-dom';
+import { Link, useRouteMatch, useHistory } from 'react-router-dom';
 import { motion, useAnimation, useViewportScroll } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+
+interface IForm {
+  keyword: string;
+}
 
 const logoVariants = {
   normal: {
@@ -33,6 +38,12 @@ export default function Header() {
 
   const navAnimation = useAnimation();
   const { scrollY } = useViewportScroll();
+
+  const history = useHistory();
+  const { register, handleSubmit } = useForm<IForm>();
+  const onValid = (data: IForm) => {
+    history.push(`/search?keyword=${data.keyword}`);
+  };
 
   useEffect(() => {
     scrollY.onChange(() => {
@@ -72,7 +83,7 @@ export default function Header() {
         </Items>
       </Col>
       <Col>
-        <Search>
+        <Search onSubmit={handleSubmit(onValid)}>
           <motion.svg
             onClick={toggleSearch}
             animate={{ x: searchOpen ? -185 : 0 }}
@@ -88,6 +99,7 @@ export default function Header() {
             ></path>
           </motion.svg>
           <Input
+            {...register('keyword', { required: true, minLength: 2 })}
             transition={{ type: 'linear' }}
             animate={{ scaleX: searchOpen ? 1 : 0 }}
             placeholder="Search for movie or tv show..."
@@ -145,7 +157,7 @@ const Item = styled.li`
   }
 `;
 
-const Search = styled.span`
+const Search = styled.form`
   color: white;
   display: flex;
   align-items: center;

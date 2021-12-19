@@ -239,8 +239,8 @@ const normalize = css`
 const GlobalStyles = (theme: { colors: IColor }) =>
   css(normalize, reset, {
     body: {
-      background: theme.colors.background,
-      color: theme.colors.text.primary,
+      background: theme.colors.black.veryDark,
+      color: theme.colors.white.lighter,
     },
   });
 

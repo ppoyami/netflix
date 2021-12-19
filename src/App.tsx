@@ -8,8 +8,8 @@ import Home from '@pages/Home';
 export default function App() {
   return (
     <div>
-      <ThemeProvider theme={theme['dark']}>
-        <Global styles={GlobalStyles(theme['dark'])} />
+      <ThemeProvider theme={theme}>
+        <Global styles={GlobalStyles(theme)} />
         <Switch>
           <Route path="/" component={Home} />
         </Switch>

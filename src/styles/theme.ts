@@ -11,10 +11,6 @@ export interface IColor {
   };
 }
 
-export interface ITheme {
-  colors: IColor;
-}
-
 const colors = {
   red: '#E51013',
   black: {
